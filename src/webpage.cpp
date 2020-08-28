@@ -38,7 +38,6 @@
 #include <qnetworkrequest.h>
 #include <qsettings.h>
 #include <qwebframe.h>
-#include <QUiLoader>
 
 #include <qwebelement.h>
 
@@ -299,12 +298,7 @@ QObject *WebPage::createPlugin(const QString &classId, const QUrl &url,
     Q_UNUSED(url);
     Q_UNUSED(paramNames);
     Q_UNUSED(paramValues);
-#if !defined(QT_NO_UITOOLS)
-    QUiLoader loader;
-    return loader.createWidget(classId, view());
-#else
     return 0;
-#endif
 }
 
 // The chromium guys have documented many examples of incompatibilities that
